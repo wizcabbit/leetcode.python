@@ -1,3 +1,6 @@
+# Solution 1 in 2014.11.1
+# Looks terrible judgement, but it works ^_^. And the space / time maybe very good.
+
 # Definition for a  binary tree node
 # class TreeNode:
 #     def __init__(self, x):
@@ -6,7 +9,7 @@
 #         self.right = None
 #         self.next = None
 
-class Solution:
+class Solution1:
     # @param root, a tree node
     # @return nothing
     def connect(self, root):
@@ -52,3 +55,33 @@ class Solution:
           root =  root.next
 
 
+# Solution 2 in 2014.11.1
+# from: https://oj.leetcode.com/discuss/3339/o-1-space-o-n-complexity-iterative-solution
+# re-code it into python, and it needs some optimize
+
+class Solution2:
+  # @param root, a tree node
+  # @return nothing
+  def connect(self, root):
+    head = None;
+    previous = None;
+    current = root;
+
+    while not (current is None):
+      while not (current is None):
+        if not (current.left is None):
+          if not (previous is None):
+            previous.next = current.left;
+          else:
+            head = current.left;
+          previous = current.left;
+        if not (current.right is None):
+          if not (previous is None):
+            previous.next = current.right;
+          else:
+            head = current.right;
+          previous = current.right;
+        current = current.next;
+      current = head;
+      head = None;
+      previous = None;
