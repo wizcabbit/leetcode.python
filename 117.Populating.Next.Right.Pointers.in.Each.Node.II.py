@@ -57,31 +57,30 @@ class Solution1:
 
 # Solution 2 in 2014.11.1
 # from: https://oj.leetcode.com/discuss/3339/o-1-space-o-n-complexity-iterative-solution
-# re-code it into python, and it needs some optimize
 
 class Solution2:
-  # @param root, a tree node
-  # @return nothing
-  def connect(self, root):
-    head = None;
-    previous = None;
-    current = root;
-
-    while not (current is None):
-      while not (current is None):
-        if not (current.left is None):
-          if not (previous is None):
-            previous.next = current.left;
-          else:
-            head = current.left;
-          previous = current.left;
-        if not (current.right is None):
-          if not (previous is None):
-            previous.next = current.right;
-          else:
-            head = current.right;
-          previous = current.right;
-        current = current.next;
-      current = head;
+    # @param root, a tree node
+    # @return nothing
+    def connect(self, root):
       head = None;
       previous = None;
+      current = root;
+
+      while not (current is None):
+        while not (current is None):
+          if not (current.left is None):
+            if not (previous is None):
+              previous.next = current.left;
+            else:
+              head = current.left;
+            previous = current.left;
+          if not (current.right is None):
+            if not (previous is None):
+              previous.next = current.right;
+            else:
+              head = current.right;
+            previous = current.right;
+          current = current.next;
+        current = head;
+        head = None;
+        previous = None;
