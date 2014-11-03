@@ -1,7 +1,5 @@
 width = 9
 
-# 1st Solution in 2014.11.2 It can solve basic sudoku, but if the sudoku is complicate, it needs too much time!!
-# Too much time complex
 class Solution:
     validCount = 0
     loopCount = 0
