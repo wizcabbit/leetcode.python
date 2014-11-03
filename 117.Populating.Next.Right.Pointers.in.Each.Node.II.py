@@ -66,16 +66,16 @@ class Solution2:
       previous = None;
       current = root;
 
-      while not (current is None):
-        while not (current is None):
-          if not (current.left is None):
-            if not (previous is None):
+      while current is not None:
+        while current is not None:
+          if current.left is not None:
+            if previous is not None:
               previous.next = current.left;
             else:
               head = current.left;
             previous = current.left;
-          if not (current.right is None):
-            if not (previous is None):
+          if current.right is not None:
+            if previous is not None:
               previous.next = current.right;
             else:
               head = current.right;

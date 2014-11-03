@@ -1,58 +1,48 @@
-  width = 9
+width = 9
 
-  class Solution:
-      # @param board, a 9x9 2D array
-      # @return a boolean
-      def isValidSudoku(self, board):
-        rowMatrix = self.getValidMatrix()
-        columnMatrix = self.getValidMatrix()
-        groupMatrix = self.getValidMatrix()
+class Solution:
+    # @param board, a 9x9 2D array
+    # @return a boolean
+    def isValidSudoku(self, board):
+      rowMatrix = self.getValidMatrix()
+      columnMatrix = self.getValidMatrix()
+      groupMatrix = self.getValidMatrix()
 
-        i = 0
-        j = 0
+      if len(board) != width:
+        return False
 
-        if len(board) != width:
+      for i in range(width):
+        if len(board[i]) != width:
           return False
 
-        while i < width:
-          if len(board[i]) != width:
+        for j in range(width):
+          if board[i][j] == '.':
+            continue
+
+          cell = int(board[i][j]) - 1
+          # Validate Rows
+          if rowMatrix[i][cell]:
+            return False
+          # Validate Columns
+          if columnMatrix[j][cell]:
+            return False
+          # Validate Groups
+          if groupMatrix[(i // 3) * 3 + j //3][cell]:
             return False
 
-          while j < width:
-            if board[i][j] != '.':
-              cell = int(board[i][j]) - 1
-              # Validate Rows
-              if rowMatrix[i][cell]:
-                return False
-              # Validate Columns
-              if columnMatrix[j][cell]:
-                return False
-              # Validate Groups
-              if groupMatrix[(i // 3) * 3 + j //3][cell]:
-                return False
+          rowMatrix[i][cell] = True
+          columnMatrix[j][cell] = True
+          groupMatrix[(i // 3) * 3 + j //3][cell] = True
 
-              rowMatrix[i][cell] = True
-              columnMatrix[j][cell] = True
-              groupMatrix[(i // 3) * 3 + j //3][cell] = True
+      return True
 
-            j = j  + 1
-          i = i + 1
-          j = 0
-
-        return True
-
-      def getValidMatrix(self):
-        result = []
-        i = 0
-        j = 0
-        while i < width:
-          result.append([])
-          while j < width:
-            result[i].append(False)
-            j = j + 1
-          i = i + 1
-          j = 0
-        return result
+    def getValidMatrix(self):
+      result = []
+      for i in range(width):
+        result.append([])
+        for j in range(width):
+          result[i].append(False)
+      return result
 
 def test(board, expect):
   solution = Solution()

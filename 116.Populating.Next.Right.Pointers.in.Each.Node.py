@@ -20,7 +20,7 @@ class Solution:
 
       self.connect_private(root.left, root.right);
 
-      if not (sibling is None):
+      if sibling is not None:
         self.connect_private(root.right, sibling.left);
       else:
         self.connect_private(root.right, None);
