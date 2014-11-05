@@ -5,9 +5,6 @@ class Solution:
     loopCount = 0
 
     def solveSudoku(self, board):
-      self.solveSudokuTask(board)
-
-    def solveSudokuTask(self, board):
       for i in range(width):
         for j in range(width):
           if board[i][j] != ".":
