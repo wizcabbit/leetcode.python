@@ -1,24 +1,42 @@
+# *********************************************
+
+# Source : https://oj.leetcode.com/problems/valid-sudoku/
+# Author : wizcabbit
+# Date   : 2014-11-02
+
+# Write a program to solve a Sudoku puzzle by filling the empty cells.
+# Empty cells are indicated by the character '.'.
+
+# *********************************************
+
 width = 9
 
 class Solution:
     validCount = 0
-    loopCount = 0
 
+    # @param board, a 9x9 2D array
+    # Solve the Sudoku by modifying the input board in-place.
+    # Do not return any value.
     def solveSudoku(self, board):
       for i in range(width):
         for j in range(width):
           if board[i][j] != ".":
             continue
           for k in range(width):
-            self.loopCount += 1
             board[i][j] = str(k + 1)
             if self.isValidSudoku(board, i, j):
               if self.solveSudokuTask(board):
                 return True
+            # Attempt fail, backtracking
             board[i][j] = '.'
           return False
       return True
 
+    # @param board, a 9x9 2D array
+    # @param x, row count of changed value
+    # @param y, rolumn count of changed value
+    # Validate if the sudoku is valid after (x,y)'s value changed
+    # @return a boolean, if the sudoku is valid
     def isValidSudoku(self, board, x, y):
       self.validCount += 1
       for i in range(width):
@@ -32,17 +50,3 @@ class Solution:
           if (m != x and n != y) and board[m][n] == board[x][y]:
             return False
       return True
-
-def test(board):
-  testBoard = []
-  for i in range(width):
-    testBoard.append([])
-    for j in range(width):
-      testBoard[i].append(board[i][j])
-  solution = Solution()
-  solution.solveSudoku(testBoard)
-
-  print(solution.loopCount)
-
-board = [".....7..9",".4..812..","...9...1.","..53...72","293....5.",".....53..","8...23...","7...5..4.","531.7...."]
-test(board)
