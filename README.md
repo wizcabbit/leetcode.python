@@ -4,7 +4,7 @@ leetcode.solution
 wizcabbit make some effects in leetcode, here is the solution.
 
 |No|Title|Solution|Analysis|
-|--|-----|--------|--------|
+|----|-----|--------|--------|
 |035|[Valid Sudoku](https://oj.leetcode.com/problems/valid-sudoku/)|[Python](src/035.Valid.Sudoku.py)|[Doc](doc/035.Valid.Sudoku.md)|
 |036|[Sudoku Solver]()|[Python](src/036.Sudoku.Solver.py)|[Doc](doc/036.Sudoku.Solver.md)|
 |066|[Valid Number]()| - | - |
