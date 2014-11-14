@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/validate-binary-search-tree/
 # Author : wizcabbit
 # Date   : 2014-11-09
@@ -9,7 +8,6 @@
 #   The left subtree of a node contains only nodes with keys less than the node's key.
 #   The right subtree of a node contains only nodes with keys greater than the node's key.
 #   Both the left and right subtrees must also be binary search trees.
-
 # *********************************************
 
 class Solution:

@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
 # Author : wizcabbit
 # Date   : 2014-10-30
@@ -25,7 +24,6 @@
 #      2 -> 3 -> NULL
 #     / \    \
 #    4-> 5 -> 7 -> NULL
-
 # *********************************************
 
 class Solution:

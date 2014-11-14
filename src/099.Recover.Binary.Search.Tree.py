@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/recover-binary-search-tree/
 # Author : wizcabbit
 # Date   : 2014-11-09
@@ -9,7 +8,6 @@
 
 # Note:
 #   A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
-
 # *********************************************
 
 class Solution:

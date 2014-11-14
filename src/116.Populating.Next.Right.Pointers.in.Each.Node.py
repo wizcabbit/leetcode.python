@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
 # Author : wizcabbit
 # Date   : 2014-10-29
@@ -19,7 +18,6 @@
 # Note:
 #   You may only use constant extra space.
 #   You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
-
 # *********************************************
 
 class Solution:

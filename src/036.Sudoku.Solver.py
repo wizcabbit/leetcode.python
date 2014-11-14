@@ -1,12 +1,10 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/valid-sudoku/
 # Author : wizcabbit
 # Date   : 2014-11-02
 
 # Write a program to solve a Sudoku puzzle by filling the empty cells.
 # Empty cells are indicated by the character '.'.
-
 # *********************************************
 
 width = 9

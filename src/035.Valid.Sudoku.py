@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/valid-sudoku/
 # Author : wizcabbit
 # Date   : 2014-11-01
@@ -10,7 +9,6 @@
 # Note:
 #   A valid Sudoku board (partially filled) is not necessarily solvable.
 #   Only the filled cells need to be validated.
-
 # *********************************************
 
 width = 9

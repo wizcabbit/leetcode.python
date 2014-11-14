@@ -1,5 +1,4 @@
 # *********************************************
-
 # Source : https://oj.leetcode.com/problems/binary-tree-level-order-traversal/
 # Author : wizcabbit
 # Date   : 2014-11-12
@@ -19,11 +18,30 @@
 #   [9,20],
 #   [15,7]
 # ]
-
 # *********************************************
 
 class Solution:
     # @param root, a tree node
     # @return a list of lists of integers
     def levelOrder(self, root):
+      currentNode = root
+      currentLayer = [root]
+      nextLayer = []
+      resultLayer = [root.val]
+      result = [resultLayer]
+
+      while currentNode != None:
+        if currentNode.left is not None:
+          nextLayer.append(currentNode.left)
+        if currentNode.right is not None:
+          nextLayer.append(currentNode.right)
+
+        resultLayer.append(currentNode.val)
+
+        if len(currentLayer) == 0:
+        else:
+          currentNode = currentLayer.pop(0)
+
+      return result
+
 
