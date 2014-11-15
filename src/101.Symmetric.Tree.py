@@ -1,39 +1,31 @@
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-    def __str__(self):
-      if self.val is None:
-        return "None"
-      else:
-        return self.val
+# *********************************************
+# Source : https://oj.leetcode.com/problems/symmetric-tree/
+# Author : wizcabbit
+# Date   : 2014-11-03
 
-def initTree(str):
-  nodes = str.split(',')
-  if len(nodes) == 0:
-    return None
-  else:
-    root = TreeNode(nodes[0])
-    queue = [root]
+# Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 
-  for node in nodes:
-    n = queue.pop(0)
-    if (node != "#"):
-      n.val = node
-    else:
-      n.val = None
+# For example, this binary tree is symmetric:
 
-    n.left = TreeNode(None)
-    n.right = TreeNode(None)
-    queue.append(n.left)
-    queue.append(n.right)
+#     1
+#    / \
+#   2   2
+#  / \ / \
+# 3  4 4  3
+# But the following is not:
+#     1
+#    / \
+#   2   2
+#    \   \
+#    3    3
+# Note:
+# Bonus points if you could solve it both recursively and iteratively.
+# *********************************************
 
-  return root
-
-# Solution 2 in 2014.11.2
-# It works, recursively
-class Solution2:
+# Recursively Solution
+class Solution:
+  # @param root, a tree node
+  # @return a boolean
   def isSymmetric(self, root):
     if root is None:
       return True
@@ -53,9 +45,8 @@ class Solution2:
     else:
       return False
 
-# Solution 2 in 2014.11.2
-# It works, iteratively
-class Solution3:
+# Iteratively Solution
+class Solution:
   def isSymmetric(self, root):
     if root is None:
       return True
@@ -73,28 +64,9 @@ class Solution3:
         return False
       if left.val == right.val:
         stack.insert(0, [left.left, right.right])
-
         stack.insert(0, [left.right, right.left])
       else:
         return False
     return True
 
-
-def test(s, expect):
-  solution = Solution3()
-  print("*****Testing: '" + s + "'*****")
-  if solution.isSymmetric(initTree(s)) != expect:
-    print("EXPECT: " + str(expect) + " BUT " + str(not expect))
-  else:
-    print("SUCCESS")
-
-test("", True)
-test("1", True)
-test("1,2,2", True)
-test("1,2,3", False)
-test("1,2,3,4", False)
-test("1,2,3,4,#", False)
-test("1,3,3,4,#,#,4", True)
-test("1,4,4,5,#,#,5,6,#,#,6", True)
-test("1,2,2,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5", True)
 
