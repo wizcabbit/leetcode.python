@@ -23,5 +23,5 @@
   rowList.each(function() {
     $(this).find("td:first-child").before("<td>" + rowLen + "</td>");
     rowLen--;
-  })
+  });
 })();
