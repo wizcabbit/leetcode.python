@@ -54,7 +54,7 @@ class Solution:
     stack = [[root.left, root.right]]
 
     while len(stack) > 0:
-      pair = stack.pop(0)
+      pair = stack.pop()
       left = pair[0]
       right = pair[1]
 
@@ -63,8 +63,8 @@ class Solution:
       if left is None or right is None:
         return False
       if left.val == right.val:
-        stack.insert(0, [left.left, right.right])
-        stack.insert(0, [left.right, right.left])
+        stack.append([left.left, right.right])
+        stack.append([left.right, right.left])
       else:
         return False
     return True

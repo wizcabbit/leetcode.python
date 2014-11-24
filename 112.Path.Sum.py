@@ -26,7 +26,7 @@ class Solution:
         return False
       else:
         # Only leaf could return true
-        if sum - root.val == 0 and root.left is None and root.right is None:
+        if sum == root.val and root.left is None and root.right is None:
           return True
         else:
           return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
